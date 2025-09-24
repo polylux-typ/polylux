@@ -1,4 +1,4 @@
-#import "../src/polylux.typ": *    
+#import "../src/polylux.typ": *
 
 #show link: set text(blue)
 #set text(font: "Andika", size: 20pt)
@@ -26,7 +26,7 @@
     // #box(image("../assets/polylux-logo.svg", height: 2em))
     #h(1fr)
     Polylux demo | #toolbox.current-section
-  ]
+  ],
 )
 
 #show heading: set block(below: 2em)
@@ -122,7 +122,7 @@
 
 #slide[
   = Fine-grained control
-  When `#show: later` does not suffice, you can use more advanced commands to
+  When `#show: later` does not suffice, you can use more advanced commands to
   show or hide content.
 
   These are some of your options:
@@ -140,7 +140,7 @@
   inset: .5em,
   fill: aqua.lighten(80%),
   radius: .5em,
-  text(size: .8em, body)
+  text(size: .8em, body),
 )
 
 #slide[
@@ -183,9 +183,9 @@
 
 #slide[
   = Convenient rules as strings
-As as short hand option, you can also specify rules as strings in a special
-syntax.
-Comma separated, you can use rules of the form
+  As as short hand option, you can also specify rules as strings in a special
+  syntax.
+  Comma separated, you can use rules of the form
   #table(
     columns: (auto, auto),
     column-gutter: 1em,
@@ -214,10 +214,10 @@ Comma separated, you can use rules of the form
 
   Again, you can use complex string rules, if you want.
   #example[
-   ```typ
-   #only("2-4, 6")[Visible on subslides 2, 3, 4, and 6]
-   ```
-   #only("2-4, 6")[Visible on subslides 2, 3, 4, and 6]
+    ```typ
+    #only("2-4, 6")[Visible on subslides 2, 3, 4, and 6]
+    ```
+    #only("2-4, 6")[Visible on subslides 2, 3, 4, and 6]
   ]
 ]
 
@@ -225,13 +225,13 @@ Comma separated, you can use rules of the form
   = `#alternatives`: Substituting content
   You might be tempted to try
   #example[
-   ```typ
-   #only(1)[Ann] #only(2)[Bob] #only(3)[Christopher] likes #only(1)[chocolate] #only(2)[strawberry] #only(3)[vanilla] ice cream.
-   ```
-   #only(1)[Ann] #only(2)[Bob] #only(3)[Christopher]
-   likes
-   #only(1)[chocolate] #only(2)[strawberry] #only(3)[vanilla]
-   ice cream.
+    ```typ
+    #only(1)[Ann] #only(2)[Bob] #only(3)[Christopher] likes #only(1)[chocolate] #only(2)[strawberry] #only(3)[vanilla] ice cream.
+    ```
+    #only(1)[Ann] #only(2)[Bob] #only(3)[Christopher]
+    likes
+    #only(1)[chocolate] #only(2)[strawberry] #only(3)[vanilla]
+    ice cream.
   ]
 
   But it is hard to see what piece of text actually changes because everything
@@ -287,7 +287,7 @@ Comma separated, you can use rules of the form
         - first
         - second
         - third
-      ]
+      ],
     )
   ]
 
@@ -313,12 +313,12 @@ Comma separated, you can use rules of the form
       ````
     ][
       #reveal-code(lines: (1, 3, 5))[```rs
-      pub fn main() {
-          let x = 42;
-          let y = 6;
-          dbg!(x / y);
-      }
-      ```]
+        pub fn main() {
+            let x = 42;
+            let y = 6;
+            dbg!(x / y);
+        }
+        ```]
     ]
   ]
 ]

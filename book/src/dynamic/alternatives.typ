@@ -3,10 +3,10 @@
 #set text(size: 40pt, font: "Atkinson Hyperlegible")
 
 #slide[
-#alternatives[Ann][Bob][Christopher]
-likes
-#alternatives[chocolate][strawberry][vanilla]
-ice cream.
+  #alternatives[Ann][Bob][Christopher]
+  likes
+  #alternatives[chocolate][strawberry][vanilla]
+  ice cream.
 
-#repeat[| #h(4cm)] // visual reference
+  #repeat[| #h(4cm)] // visual reference
 ]

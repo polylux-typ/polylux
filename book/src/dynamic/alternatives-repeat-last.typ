@@ -3,7 +3,7 @@
 #set text(size: 50pt, font: "Atkinson Hyperlegible")
 
 #slide[
-#alternatives(repeat-last: true)[temporary][transitory][ephemeral][permanent!]
+  #alternatives(repeat-last: true)[temporary][transitory][ephemeral][permanent!]
 
-#uncover(5)[Did I miss something?]
+  #uncover(5)[Did I miss something?]
 ]

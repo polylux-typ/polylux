@@ -2,9 +2,7 @@
 
 #import themes.metropolis: *
 
-#show: metropolis-theme.with(
-  footer: [Custom footer]
-)
+#show: metropolis-theme.with(footer: [Custom footer])
 
 #set text(font: "Fira Sans", weight: "light", size: 20pt)
 #show math.equation: set text(font: "Fira Math")
@@ -16,7 +14,7 @@
   title: "Title",
   subtitle: "Subtitle",
   date: "Date",
-  extra: "Extra"
+  extra: "Extra",
 )
 
 #slide(title: "Table of contents")[
@@ -25,7 +23,7 @@
 
 #slide(title: "Slide title")[
   A slide with some maths:
-  $ x_(n+1) = (x_n + a/x_n) / 2 $
+  $ x_(n+1) = (x_n + a / x_n) / 2 $
 
   #lorem(200)
 ]

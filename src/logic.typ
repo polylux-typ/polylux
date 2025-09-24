@@ -26,17 +26,17 @@
     if match-until != none {
       let parsed = int(match-until.captures.first())
       // assert(parsed > 0, "parsed idx is non-positive")
-      ( until: parsed )
+      (until: parsed)
     } else if match-beginning != none {
       let parsed = int(match-beginning.captures.first())
       // assert(parsed > 0, "parsed idx is non-positive")
-      ( beginning: parsed )
+      (beginning: parsed)
     } else if match-range != none {
       let parsed-first = int(match-range.captures.first())
       let parsed-last = int(match-range.captures.last())
       // assert(parsed-first > 0, "parsed idx is non-positive")
       // assert(parsed-last > 0, "parsed idx is non-positive")
-      ( beginning: parsed-first, until: parsed-last )
+      (beginning: parsed-first, until: parsed-last)
     } else if match-single != none {
       let parsed = int(match-single.captures.first())
       // assert(parsed > 0, "parsed idx is non-positive")
@@ -98,7 +98,7 @@
 }
 
 #let _conditional-display(visible-subslides, reserve-space, mode, body) = {
-  context{
+  context {
     let vs = if reserve-space and handout-mode.at(here()) {
       (:)
     } else {
@@ -128,8 +128,14 @@
 }
 
 #let item-by-item(start: 1, mode: hide, body) = {
-  let is-item(it) = type(it) == content and it.func() in (
-    list.item, enum.item, terms.item
+  let is-item(it) = (
+    type(it) == content
+      and it.func()
+        in (
+          list.item,
+          enum.item,
+          terms.item,
+        )
   )
   let children = if type(body) == content and body.has("children") {
     body.children
@@ -148,16 +154,19 @@
 
   let subslides = subslides-contents.map(it => it.first())
   let contents = subslides-contents.map(it => it.last())
-  context{
+  context {
     let sizes = contents.map(c => measure(c))
     let max-width = calc.max(..sizes.map(sz => sz.width))
     let max-height = calc.max(..sizes.map(sz => sz.height))
     for (subslides, content) in subslides-contents {
-      only(subslides, box(
-        width: max-width,
-        height: max-height,
-        align(position, content)
-      ))
+      only(
+        subslides,
+        box(
+          width: max-width,
+          height: max-height,
+          align(position, content),
+        ),
+      )
     }
   }
 }
@@ -165,7 +174,7 @@
 #let alternatives(
   start: 1,
   repeat-last: false,
-  ..args
+  ..args,
 ) = {
   let contents = args.pos()
   let kwargs = args.named()
@@ -181,7 +190,7 @@
   end: none,
   count: none,
   ..kwargs,
-  fn
+  fn,
 ) = {
   let end = if end == none {
     if count == none {
@@ -222,7 +231,7 @@
       panic("Illegal mode: " + str(c))
     }
   })
-  for (idx, (from , to)) in lines.windows(2).enumerate() {
+  for (idx, (from, to)) in lines.windows(2).enumerate() {
     show raw.line: it => {
       if it.number <= from {
         before-action(it)

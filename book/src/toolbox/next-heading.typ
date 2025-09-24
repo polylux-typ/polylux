@@ -3,7 +3,7 @@
 
 #set page(
   paper: "presentation-16-9",
-  header: toolbox.next-heading(h => underline(h))
+  header: toolbox.next-heading(h => underline(h)),
 )
 
 #show heading.where(level: 1): none

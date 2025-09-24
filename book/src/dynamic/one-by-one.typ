@@ -3,5 +3,5 @@
 #set text(size: 50pt, font: "Atkinson Hyperlegible")
 
 #slide[
-#one-by-one[Do you know ][$pi$ ][to a thousand decimal places?]
+  #one-by-one[Do you know ][$pi$ ][to a thousand decimal places?]
 ]

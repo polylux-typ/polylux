@@ -15,8 +15,11 @@
 */
 
 #slide[
-#alternatives-cases(("1, 3", "2"), case => [
-  #set text(fill: teal) if case == 1
-  Some text
-])
+  #alternatives-cases(
+    ("1, 3", "2"),
+    case => [
+      #set text(fill: teal) if case == 1
+      Some text
+    ],
+  )
 ]

@@ -3,9 +3,9 @@
 #set text(size: 50pt, font: "Atkinson Hyperlegible")
 
 #slide[
-#item-by-item[
-  - first
-  - second
-  - third
-]
+  #item-by-item[
+    - first
+    - second
+    - third
+  ]
 ]

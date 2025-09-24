@@ -4,9 +4,7 @@
 
 #set text(font: "Inria Sans")
 
-#show: simple-theme.with(
-  footer: [Simple slides],
-)
+#show: simple-theme.with(footer: [Simple slides])
 
 #title-slide[
   = Keep it simple!

@@ -14,7 +14,7 @@
   subtitle: "Subtitle",
   date: "Date",
   institution-name: "University Name",
-  logo: image("dummy-logo.png", width: 60mm)
+  logo: image("dummy-logo.png", width: 60mm),
 )
 
 #slide(title: [Slide title], new-section: [The section])[

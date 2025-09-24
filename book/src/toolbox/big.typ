@@ -3,5 +3,5 @@
 #set text(size: 40pt, font: "Atkinson Hyperlegible")
 
 #slide[
-#toolbox.big[BIG]
+  #toolbox.big[BIG]
 ]

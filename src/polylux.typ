@@ -10,6 +10,6 @@
   item-by-item,
   reveal-code,
   later,
-  enable-handout-mode
+  enable-handout-mode,
 )
 #import "toolbox/toolbox.typ"

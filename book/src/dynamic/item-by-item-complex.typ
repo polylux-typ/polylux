@@ -3,27 +3,27 @@
 #set text(size: 35pt, font: "Atkinson Hyperlegible")
 
 #slide[
-#show: columns.with(3)
+  #show: columns.with(3)
 
-#set list(marker: sym.arrow)
-#item-by-item[
-  - first
-  - second
-    - some
-    - detail
-  - third
-]
-#colbreak()
+  #set list(marker: sym.arrow)
+  #item-by-item[
+    - first
+    - second
+      - some
+      - detail
+    - third
+  ]
+  #colbreak()
 
-#item-by-item[
-  + also
-  + works
-  + with `enums`
-]
-#colbreak()
+  #item-by-item[
+    + also
+    + works
+    + with `enums`
+  ]
+  #colbreak()
 
-#item-by-item(start: 2)[
-  / and: with
-  / terms: too
-]
+  #item-by-item(start: 2)[
+    / and: with
+    / terms: too
+  ]
 ]

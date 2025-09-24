@@ -3,5 +3,5 @@
 #set text(size: 50pt, font: "Atkinson Hyperlegible")
 
 #slide[
-#one-by-one(start: 3)[This ][came ][pretty late.]
+  #one-by-one(start: 3)[This ][came ][pretty late.]
 ]
