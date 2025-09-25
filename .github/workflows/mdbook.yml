@@ -36,6 +36,11 @@ jobs:
         run: |
           mkdir bin
           curl -sSL https://github.com/rust-lang/mdBook/releases/download/v0.4.28/mdbook-v0.4.28-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=bin
+      - name: Install mdbook-typst-highlight
+        run: |
+          mkdir typst-highlight
+          curl -sSL https://github.com/sitandr/mdbook-typst-highlight/releases/download/v0.1.0/mdbook-typst-highlight-x86_64-unknown-linux-gnu.tar.gz | tar -xz --directory=typst-highlight
+          echo `pwd`/typst-highlight >> $GITHUB_PATH
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
