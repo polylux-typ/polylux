@@ -1,15 +1,6 @@
 #import "logic.typ": (
-  slide,
-  uncover,
-  only,
-  alternatives,
-  alternatives-match,
-  alternatives-fn,
-  alternatives-cases,
-  one-by-one,
-  item-by-item,
-  reveal-code,
-  later,
-  enable-handout-mode
+  alternatives, alternatives-cases, alternatives-fn, alternatives-match,
+  enable-handout-mode, item-by-item, later, one-by-one, only, reveal-code,
+  slide, uncover,
 )
 #import "toolbox/toolbox.typ"
