@@ -13,4 +13,7 @@ jobs:
           chmod +x "$HOME/.local/bin/typstyle"
           echo "$HOME/.local/bin" >> "$GITHUB_PATH"
       - name: Format typst files
-        run: typstyle --diff src examples tests
+        run: typstyle --inplace src examples tests
+      - uses: getsentry/action-git-diff-suggestions@main
+        with:
+          message: "Typstyle suggested changes"
