@@ -122,7 +122,7 @@
 
 #slide[
   = Fine-grained control
-   When `#show: later` does not suffice, you can use more advanced commands to
+  When `#show: later` does not suffice, you can use more advanced commands to
   show or hide content.
 
   These are some of your options:
