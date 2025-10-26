@@ -56,3 +56,8 @@ A more complex example involving enums and term lists:
 
 Note that the list markers and enum numbers are not hidden.
 You can truly consider this a bug or a feature...
+
+This is due to a [bug](https://github.com/typst/typst/issues/619) in typst.
+See the
+[FAQ](../faq/faq.md#is-it-possible-to-also-hide-the-markers-of-hidden-list-items)
+for a workaround.

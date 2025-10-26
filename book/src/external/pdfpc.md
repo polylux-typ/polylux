@@ -22,15 +22,15 @@ metadata that can later be extracted from the document.
 
 ### Speaker notes
 This is possibly the most useful feature of pdfpc.
-Using the function `#pdfpc.speaker-note` inside a slide, you can add a note to
+Using the function `#toolbox.pdfpc.speaker-note` inside a slide, you can add a note to
 that slide that will only be visible to the speaker in pdfpc.
 It accepts either a string:
 ```typ
-#pdfpc.speaker-note("This is a note that only the speaker will see.")
+#toolbox.pdfpc.speaker-note("This is a note that only the speaker will see.")
 ```
 or a `raw` block:
 ````typ
-#pdfpc.speaker-note(
+#toolbox.pdfpc.speaker-note(
   ```md
   # My notes
   Did you know that pdfpc supports Markdown notes? _So cool!_
@@ -46,13 +46,13 @@ end with.
 Say, you have some bibliography or appendix for the sake of completeness after
 your "I thank my mom and everyone who believed in me"-slide.
 
-With a simple `pdfpc.end-slide` inside any slide you can tell pdfpc that this is
+With a simple `#toolbox.pdfpc.end-slide` inside any slide you can tell pdfpc that this is
 the last slide you usually want to show and hitting the `End` key will jump there.
 
 ### Save a slide
 Similarly, there is a feature in pdfpc to bookmark a specific slide (and you can
 jump to it using `Shift + M`).
-In your Typst source, you can choose that slide by putting `pdfpc.save-slide`
+In your Typst source, you can choose that slide by putting `#toolbox.pdfpc.save-slide`
 inside it.
 
 ### Hide slides
@@ -60,11 +60,11 @@ If you want to keep a certain slide in your presentation (just in case) but don'
 normally intend to show it, you can hide it inside pdfpc.
 It will be skipped during the presentation but it is still available in the
 overview.
-You can use `pdfpc.hidden-slide` in your Typst source to mark a slide as hidden.
+You can use `#toolbox.pdfpc.hidden-slide` in your Typst source to mark a slide as hidden.
 
 ### Configure pdfpc
 The previous commands are all supposed to be used _inside_ a slide.
-To perform some additional global configuration, you can use `pdfpc.config()`
+To perform some additional global configuration, you can use `toolbox.pdfpc.config()`
 _before_ any of the slides (it will not be recognised otherwise).
 
 It accepts the following optional keyword arguments:

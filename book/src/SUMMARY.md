@@ -20,6 +20,7 @@
   - [Next heading](./toolbox/next-heading.md)
   - [Big](./toolbox/big.md)
   - [Full width](./toolbox/full-width.md)
+- [FAQ](./faq/faq.md)
 - [External tools](./external/external.md)
   - [pdfpc](./external/pdfpc.md)
 - [Changelog](./changelog.md)
