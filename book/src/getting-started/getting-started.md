@@ -7,9 +7,12 @@ To use it, start your document with
 {{#include ../IMPORT.typ}}
 ```
 You now have two options:
-1. start from one of the
-  [templates](https://typst.app/universe/search/?q=polylux&kind=templates), or
-2. start from scratch.
+1. Start from one of the
+  [templates](https://typst.app/universe/search/?q=polylux&kind=templates).
+  If you want just a minimal scaffold to get you started, try out
+  [the basic template](https://github.com/polylux-typ/basic) by running
+  `typst init @preview/basic-polylux:0.1.0 your-cool-project`.
+2. Start from scratch.
 
 We will choose the second option for this tutorial.
 Let's start with the absolute minimal effort.
