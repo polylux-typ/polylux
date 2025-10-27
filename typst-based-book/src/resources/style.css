@@ -14,8 +14,6 @@ main {
 }
 
 header {
-  position: sticky;
-  top: 0px;
   border-bottom: 3px solid #0074d9;
   background-color: white;
 }
@@ -25,7 +23,6 @@ footer {
 }
 
 main, header, footer {
-  margin: 0rem auto;
   max-width: 50rem;
 }
 
@@ -63,19 +60,57 @@ img {
   width: 100%;
 }
 
+@media screen and (width >= 70rem) {
+  #outline-toggle {
+    display: none;
+  }
+
+  #outline {
+    display: flex;
+    width: 15rem;
+  }
+
+  main, header, footer {
+    margin-left: 18rem;
+  }
+}
+
+@media screen and (width < 70rem) {
+  #outline {
+    box-shadow: .4rem 0rem .8rem #bbb;
+    max-width: calc(max(50vw, 15rem));
+    width: calc(min(50vw, 15rem));
+  }
+
+  #outline.hidden {
+    display: none;
+  }
+
+  #outline:not(.hidden) {
+    display: flex;
+  }
+
+  header {
+    position: sticky;
+    top: 0px;
+  }
+
+  main, header, footer {
+    margin: 0rem auto;
+  }
+}
+
 #outline {
   position: fixed;
   flex-direction: column;
+  justify-content: center;
+  background-color: hsl(0, 0%, 95%);
   height: 100%;
   top: 0;
   left: 0;
   z-index: 5;
-  box-shadow: .4rem 0rem .8rem #bbb;
-  background-color: #eee;
-  padding: .5rem;
+  padding: 2rem 1rem;
   overflow-x: scroll;
-  max-width: calc(max(30vw, 20rem));
-  width: calc(min(30vw, 20rem));
 }
 
 #outline p {
@@ -94,8 +129,12 @@ img {
   text-decoration: none;
 }
 
-#outline a:hover {
+#outline a:hover, #outline a.current:hover {
   color: #0074d9;
+}
+
+#outline a.current {
+  font-weight: bold;
 }
 
 pre {

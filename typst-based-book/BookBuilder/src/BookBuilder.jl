@@ -6,8 +6,8 @@ using ProgressMeter
 function @main(args)
     config = Dict(split.(args, '='))
     root = get(config, "root", "")
-    optimize = parse(Bool, get(config, "optimize", "true"))
-    @info "running with config" root optimize
+    fast = parse(Bool, get(config, "fast", "false"))
+    @info "running with config" root fast
 
     mktempdir() do wd
         cp("src", joinpath(wd, "src"))
@@ -21,7 +21,7 @@ function @main(args)
                 if i < lastindex(files)
                     next = files[i + 1]
                 end
-                compile_file(files[i]; prev, next, root, optimize)
+                compile_file(files[i]; prev, next, root, fast)
             end
         end
         isdir("build") && rm("build"; recursive = true)
@@ -32,7 +32,7 @@ function @main(args)
     return nothing
 end
 
-function compile_file(file; prev, next, root, optimize)
+function compile_file(file; prev, next, root, fast)
     @info "compiling $file"
     infile = joinpath("src", file)
     outfile = joinpath("build", chopsuffix(file, ".typ") * ".html")
@@ -42,22 +42,23 @@ function compile_file(file; prev, next, root, optimize)
     ))
     @showprogress for example in examples
         mktempdir() do temp_example_dir
-            cd(temp_example_dir) do 
-                open(`typst compile - "{p}".png`; write = true) do io
+            cd(temp_example_dir) do
+                ppi = ifelse(fast, 10, 144)
+                open(`typst compile --ppi $ppi - "{p}".png`; write = true) do io
                     write(io, example.code)
                 end
                 pngs = readdir()
-                open(`typst compile - composed.png`; write = true) do io
+                open(`typst compile --ppi $ppi - composed.png`; write = true) do io
                     write(io, compose_code(example, pngs))
                 end
-                if optimize
+                if !fast
                     run(`oxipng -q composed.png`)
                 end
             end
             mv(joinpath(temp_example_dir, "composed.png"), joinpath("src", "$(example.id).png"))
         end
     end
-    run(`typst compile --root . --features html --format html $infile result.html --input book-images=created --input book-prev=$prev --input book-next=$next --input book-root=$root`)
+    run(`typst compile --root . --features html --format html $infile result.html --input book-build=true --input book-prev=$prev --input book-next=$next --input book-root=$root`)
     mv("result.html", outfile)
 end
 

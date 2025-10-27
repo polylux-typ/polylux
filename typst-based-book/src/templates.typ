@@ -1,18 +1,28 @@
+#let config = {
+  let root = sys.inputs.at("book-root", default: "")
+  if root.len() > 0 and not root.starts-with("/") {
+    root = "/" + root
+  }
+  if not root.ends-with("/") {
+    root = root + "/"
+  }
+
+  (
+    root: root,
+    prev: sys.inputs.at("book-prev", default: ""),
+    next: sys.inputs.at("book-next", default: ""),
+    build: json(bytes(sys.inputs.at("book-build", default: "false"))),
+  )
+}
+
 #let base-template(body, head-extra: none) = context if target() == "html" {
   let to-web-link(filename) = {
-    let root = sys.inputs.at("book-root", default: "")
     let converted-suffix = if filename.ends-with(".typ") {
       filename.slice(0, -3) + "html"
     } else {
       filename
     }
-    if root.len() > 0 and not root.starts-with("/") {
-      root = "/" + root
-    }
-    if not root.ends-with("/") {
-      root = root + "/"
-    }
-    root + converted-suffix
+    config.root + converted-suffix
   }
 
   html.html({
@@ -22,15 +32,18 @@
         name: "viewport",
         content: "width=device-width, initial-scale=1.0",
       )
-      // html.style(read("style.css"))
-      html.link(rel: "stylesheet", href: to-web-link("resources/style.css"))
-      html.script(defer: true, src: to-web-link("resources/control.js"))
+      if config.build {
+        html.link(rel: "stylesheet", href: to-web-link("resources/style.css"))
+        html.script(defer: true, src: to-web-link("resources/control.js"))
+      } else {
+        html.style(read("resources/style.css"))
+      }
       head-extra
     })
     html.body({
       html.div(
         id: "outline",
-        style: "display:none",
+        class: "hidden",
         {
           show link: it => html.a(href: to-web-link(it.dest), it.body)
           include "outline.typ"
@@ -49,26 +62,26 @@
         body
       })
       html.footer({
-        let prev = sys.inputs.at("book-prev", default: "")
-        let next = sys.inputs.at("book-next", default: "")
-        if prev != "" {
+        if config.build and config.prev == "" {
+          html.span() // empty element so that the flex layout still works
+        } else {
           html.a(
-            href: to-web-link(prev),
+            href: to-web-link(config.prev),
             image(width: 2em, "assets/left.svg"),
           )
-        } else {
-          html.span()
         }
-        if next != "" {
+        if config.build and config.next == "" {
+          html.span() // empty element so that the flex layout still works
+        } else {
           html.a(
-            href: to-web-link(next),
+            href: to-web-link(config.next),
             image(width: 2em, "assets/right.svg"),
           )
-        } else {
-          html.span()
         }
       })
-      // html.script(defer: true, read("control.js"))
+      if not config.build {
+        html.script(read("resources/control.js"))
+      }
     })
   })
 } else { body }
@@ -103,11 +116,9 @@
       bgcolor: bgcolor,
       columns: columns,
     )) <book-example>]
-  if "book-images" in sys.inputs {
-    // import "@preview/based:0.2.0": base64
-    // image(base64.decode(sys.inputs.at(id)))
+  if config.build {
     image(id + ".png")
   } else {
-    par[_no image available_]
+    par[_image is not displayed in this build mode_]
   }
 }
