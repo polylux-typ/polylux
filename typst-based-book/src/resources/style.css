@@ -58,6 +58,7 @@ header a:hover, main a:hover {
 
 img {
   width: 100%;
+  border-radius: 5px;
 }
 
 @media screen and (width >= 70rem) {
@@ -142,7 +143,7 @@ pre {
     overflow-x: auto;
     background-color: #eee;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 5px;
     font-size: 1rem;
 }
 
