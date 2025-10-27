@@ -3,3 +3,6 @@
 + #link("dynamic/dynamic.typ")[Dynamic slides]
   + #link("dynamic/reserve.typ")[Reserving space: `only` and `uncover`]
   + #link("dynamic/syntax.typ")[General syntax]
+  + #link("dynamic/complex.typ")[Complex rules]
+  + #link("dynamic/helper.typ")[Helper functions]
+  + #link("dynamic/later.typ")[`#show: later`]
