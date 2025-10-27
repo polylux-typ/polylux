@@ -25,7 +25,7 @@
     "-2": [beginning],
     "3, 5": [main part],
     "4": [short break],
-    "6-" : [end]
+    "6-": [end],
   ))
 
   #uncover("1-8")[I am always here, for technical reasons.]
@@ -35,10 +35,10 @@
   == Another test that `alternatives-match` works
 
   #alternatives-match(position: center, (
-    (2,  [beginning]),
+    (2, [beginning]),
     ((3, 5), [main part]),
     (4, [short break]),
-    ("6-" , [end])
+    ("6-", [end]),
   ))
 
   #uncover("1-8")[I am always here, for technical reasons.]
@@ -57,7 +57,7 @@
   // == Test that `alternatives-fn` works
 
   // #raw(lang: "typ", repr(range(1, 6)))
-  
+
   // #alternatives-fn(start: 2, count: 5, subslide => numbering("(i)", subslide))
 
   #only(2)[abc]

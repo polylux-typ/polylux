@@ -1,13 +1,5 @@
 #import "toolbox-impl.typ": (
-  pdfpc,
-  register-section,
-  current-section,
-  all-sections,
-  progress-ratio,
+  all-sections, big, current-section, full-width-block, last-slide-number,
+  next-heading, pdfpc, progress-ratio, register-section, side-by-side,
   slide-number,
-  last-slide-number,
-  big,
-  side-by-side,
-  full-width-block,
-  next-heading,
 )

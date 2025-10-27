@@ -1,0 +1,19 @@
+on:
+  pull_request:
+
+jobs:
+  check-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Typstyle
+        run: |
+          mkdir -p "$HOME/.local/bin"
+          wget "https://github.com/typstyle-rs/typstyle/releases/latest/download/typstyle-x86_64-unknown-linux-gnu" -O "$HOME/.local/bin/typstyle"
+          chmod +x "$HOME/.local/bin/typstyle"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Format typst files
+        run: typstyle --inplace src examples tests
+      - uses: getsentry/action-git-diff-suggestions@main
+        with:
+          message: "Typstyle suggested changes"

@@ -34,8 +34,7 @@
 
 #let progress-ratio(ratio-to-content) = context {
   let ratio = (
-    logic.logical-slide.get().first() /
-    logic.logical-slide.final().first()
+    logic.logical-slide.get().first() / logic.logical-slide.final().first()
   )
   ratio-to-content(ratio)
 }
@@ -61,7 +60,7 @@
 
 #let side-by-side(columns: none, gutter: 1em, ..bodies) = {
   let bodies = bodies.pos()
-  let columns = if columns ==  none { (1fr,) * bodies.len() } else { columns }
+  let columns = if columns == none { (1fr,) * bodies.len() } else { columns }
   if columns.len() != bodies.len() {
     panic("number of columns must match number of content arguments")
   }
