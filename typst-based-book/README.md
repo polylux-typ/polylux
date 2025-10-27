@@ -4,6 +4,9 @@ This is a work in progress experiment about how we could write the Polylux book
 entirely in Typst.
 Note how the directory `src` is much more clean than in the current book.
 
+A (not necessarily up to date) version of how this book might look can be found
+[here](https://a5s.eu/polylux-experimental-book/).
+
 ## Usage
 
 For each page in the book, write a Typst file somewhere inside the `src` folder.
@@ -61,7 +64,7 @@ REPL:
 ```julia
 julia> ]
 
-(@v1.12) pgk> app dev BookBuilder
+(@v1.12) pkg> app dev BookBuilder
 ```
 Afterwards, you can run the tool simply with
 ```sh
