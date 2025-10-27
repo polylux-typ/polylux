@@ -150,12 +150,41 @@ pre {
 pre code {
     padding: 0;
     background: none;
+    font-size: 1em;
 }
 
 code {
     background-color: #eee;
-    font-size: 1rem;
-    padding: 0.1rem;
+    font-size: 0.8em;
+    padding: 0.1em;
     border-radius: 5px;
     font-family: 'Atkinson Hyperlegible Mono', monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #bbb;
+  }
+
+  body, main, header, footer {
+    background-color: #222;
+  }
+
+  #outline {
+    background-color: hsl(0, 0%, 5%);
+  }
+
+  pre {
+    background-color: #333;
+  }
+
+  code {
+    background-color: #333;
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) and (width <= 70rem) {
+  #outline {
+    box-shadow: .4rem 0rem .8rem #333;
+  }
 }
