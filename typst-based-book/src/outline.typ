@@ -1,0 +1,5 @@
+#link("index.typ")[Polylux]
++ #link("getting-started.typ")[Getting started]
++ #link("dynamic/dynamic.typ")[Dynamic slides]
+  + #link("dynamic/reserve.typ")[Reserving space: `only` and `uncover`]
+  + #link("dynamic/syntax.typ")[General syntax]
