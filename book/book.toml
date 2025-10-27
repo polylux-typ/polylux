@@ -12,3 +12,6 @@ site-url = "/polylux/book/"
 [output.html.code.hidelines]
 typ = "~"
 
+[preprocessor.typst-highlight]
+#disable_inline = true
+#highlight_without_lang = true
