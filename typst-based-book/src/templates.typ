@@ -117,7 +117,8 @@
       columns: columns,
     )) <book-example>]
   if config.build {
-    image(id + ".png")
+    // image(id + ".png")
+    image(id + ".svg")
   } else {
     par[_image is not displayed in this build mode_]
   }

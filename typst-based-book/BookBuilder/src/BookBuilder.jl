@@ -44,34 +44,44 @@ function compile_file(file; prev, next, root, fast)
         mktempdir() do temp_example_dir
             cd(temp_example_dir) do
                 ppi = ifelse(fast, 10, 144)
-                open(`typst compile --ppi $ppi - "{p}".png`; write = true) do io
+                # open(`typst compile --ppi $ppi - "{p}".png`; write = true) do io
+                open(`typst compile - "{0p}".svg`; write = true) do io
                     write(io, example.code)
                 end
-                pngs = readdir()
-                open(`typst compile --ppi $ppi - composed.png`; write = true) do io
-                    write(io, compose_code(example, pngs))
+                imgs = readdir()
+                for img in imgs
+                    run(`scour -i $img -o min.svg --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none`)
+                    mv("min.svg", img; force = true)
                 end
-                if !fast
-                    run(`oxipng -q composed.png`)
+
+                # open(`typst compile --ppi $ppi - composed.png`; write = true) do io
+                open(`typst compile - composed.svg`; write = true) do io
+                    write(io, compose_code(example, imgs))
                 end
+                # if !fast
+                #     run(`oxipng -q composed.png`)
+                # end
+                run(`scour -i composed.svg -o composed-min.svg --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none`)
             end
-            mv(joinpath(temp_example_dir, "composed.png"), joinpath("src", "$(example.id).png"))
+            # mv(joinpath(temp_example_dir, "composed.png"), joinpath("src", "$(example.id).png"))
+            mv(joinpath(temp_example_dir, "composed-min.svg"), joinpath("src", "$(example.id).svg"))
         end
     end
     run(`typst compile --root . --features html --format html $infile result.html --input book-build=true --input book-prev=$prev --input book-next=$next --input book-root=$root`)
-    mv("result.html", outfile)
+    run(`minhtml --keep-html-and-head-opening-tags --keep-closing-tags -o result-min.html result.html`)
+    mv("result-min.html", outfile)
 end
 
 function read_outline()
     files = JSON.parse(read(`typst query --root . --field dest src/outline.typ link`))
 end
 
-compose_code(example, pngs) = """
+compose_code(example, imgs) = """
     #set page(width: auto, height: auto, margin: 1cm, fill: $(example.bgcolor))
     #grid(
         columns: $(example.columns),
         gutter: 1cm,
-        $(["image(\"$png\")," for png in pngs]...)
+        $(["image(\"$img\")," for img in imgs]...)
     )
 """
 
