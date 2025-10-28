@@ -25,12 +25,10 @@ Polylux provides the `later` function that makes its argument appear on the
 next subslide.
 So, we can equivalently write the above code as:
 #example(
-  id: "later",
   columns: 3,
   ```typ
-  // POLYLUX IMPORT
-  #set page(paper: "presentation-16-9")
-  #set text(size: 50pt, font: "Atkinson Hyperlegible")
+  // SETUP
+  #set text(size: 50pt)
 
   #slide[
   // START

@@ -10,13 +10,9 @@ number.
 The simplest extension is to use an array.
 For example:
 #example(
-  id: "rule-array",
   columns: 2,
   ```typ
-  // POLYLUX IMPORT
-  #set page(paper: "presentation-16-9")
-  #set text(size: 30pt, font: "Atkinson Hyperlegible")
-
+  // SETUP
   // START
   #slide[
     #uncover((1, 2, 4))[uncovered only on subslides 1, 2, and 4]
@@ -31,13 +27,9 @@ on this page.
 You can also provide a (bounded or half-bounded) interval in the form of a
 dictionary with a `beginning` and/or an `until` key:
 #example(
-  id: "rule-interval",
   columns: 3,
   ```typ
-  // POLYLUX IMPORT
-  #set page(paper: "presentation-16-9")
-  #set text(size: 30pt, font: "Atkinson Hyperlegible")
-
+  // SETUP
   // START
   #slide[
     #only((beginning: 1, until: 5))[Content displayed on subslides 1, 2, 3, 4, and 5 \ ]
@@ -60,12 +52,10 @@ That's only fun the first time.
 Therefore, we provide a convenient alternative.
 You can equivalently write:
 #example(
-  id: "rule-string",
   columns: 4,
   ```typ
-  // POLYLUX IMPORT
-  #set page(paper: "presentation-16-9")
-  #set text(size: 40pt, font: "Atkinson Hyperlegible")
+  // SETUP
+  #set text(size: 40pt)
 
   #slide[
   // START

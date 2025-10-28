@@ -13,13 +13,9 @@ namely putting the content block _behind_ the function call.
 
 You could therefore write:
 #example(
-  id: "only-uncover",
   columns: 2,
   ```typ
-  // POLYLUX IMPORT
-  #set page(paper: "presentation-16-9")
-  #set text(size: 30pt, font: "Atkinson Hyperlegible")
-
+  // SETUP
   // START
   #slide[
     before #only(2)[*displayed only on subslide 2*] after

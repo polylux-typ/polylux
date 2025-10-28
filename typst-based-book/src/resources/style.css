@@ -14,12 +14,12 @@ main {
 }
 
 header {
-  border-bottom: 3px solid #0074d9;
+  border-bottom: 3px solid var(--accent-color);
   background-color: white;
 }
 
 footer {
-  border-top: 3px solid #0074d9;
+  border-top: 3px solid var(--accent-color);
 }
 
 main, header, footer {
@@ -37,7 +37,7 @@ header, footer {
 footer a, button {
   border: none;
   border-radius: .3em;
-  background-color: #0074d9;
+  background-color: var(--accent-color);
   color: white;
   padding: .5em;
   display: flex;
@@ -131,7 +131,7 @@ img {
 }
 
 #outline a:hover, #outline a.current:hover {
-  color: #0074d9;
+  color: var(--accent-color);
 }
 
 #outline a.current {

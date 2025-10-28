@@ -1,0 +1,33 @@
+[style]
+accent-color = "#0074d9"
+
+[[snippets]]
+trigger = "// SETUP"
+expansion = """
+// POLYLUX IMPORT
+// LIGHT DARK
+#set page(paper: "presentation-16-9")
+#set text(font: "Atkinson Hyperlegible Next", size: 30pt)
+"""
+
+[[snippets]]
+trigger = "// POLYLUX IMPORT"
+expansion = """\
+#import "@preview/polylux:0.4.0": *
+"""
+
+[[snippets]]
+trigger = "// LIGHT DARK"
+expansion = """
+#show: body => {
+  let theme = if sys.inputs.at("theme", default: "light") == "light" {
+    (bg: white, fg: black)
+  } else {
+    (bg: luma(50), fg: white)
+  }
+  set page(fill: theme.bg)
+  set text(fill: theme.fg)
+
+  body
+}
+"""

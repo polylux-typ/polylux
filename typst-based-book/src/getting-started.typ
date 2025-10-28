@@ -39,20 +39,17 @@ the font size to something readable from the last row:
 We should be ready do go to create some actual slides now.
 We will use the function `slide` for this, which is kind of at the core
 of this package.
-#example(
-  id: "hello-world",
-  ```typ
-  // POLYLUX IMPORT
+#example(```typ
+// POLYLUX IMPORT
 
-  #set page(paper: "presentation-16-9")
-  #set text(size: 25pt)
+#set page(paper: "presentation-16-9")
+#set text(size: 25pt)
 
-  // START
-  #slide[
-    Hello, world!
-  ]
-  ```,
-)
+// START
+#slide[
+  Hello, world!
+]
+```)
 So the result already kinda looks like a slide, but also a bit boring, maybe
 (the gray border is not part of the output but it makes the slide easier to see
 here).
@@ -61,7 +58,6 @@ talk they are attending.
 Also, let us choose a nicer font and maybe add some colour?
 We modify the `#set page` and `#set text` commands for that:
 #example(
-  id: "title-slide",
   columns: 2,
   ```typ
   // POLYLUX IMPORT
@@ -89,7 +85,6 @@ Another thing that is usually a good idea is to have a title on each slide.
 That is also no big deal by using off-the-shelf Typst features, so let's modify
 our first slide:
 #example(
-  id: "slide-title",
   columns: 2,
   ```typ
   // POLYLUX IMPORT
@@ -135,7 +130,6 @@ nothing actually "moves" on PDF pages).
 So how does that work in Polylux?
 As a quick example, let's add a little quiz to our slides:
 #example(
-  id: "quiz",
   columns: 2,
   ```typ
   // POLYLUX IMPORT
