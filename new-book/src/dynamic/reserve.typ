@@ -1,8 +1,8 @@
-#import "../templates.typ": example, base-template
+#import "../setup.typ": example, toot-page
+#set document(title: [Reserve space or not?])
+#show: toot-page
 
-#show: base-template
-
-#title[Reserve space or not?]
+#title()
 
 When you want to specify that a certain piece of content should be displayed on
 some subslides but not on others, the first question should be what should

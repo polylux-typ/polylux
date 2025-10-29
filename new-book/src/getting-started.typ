@@ -1,8 +1,8 @@
-#import "templates.typ": example, base-template
+#import "setup.typ": example, toot-page
+#set document(title: [Getting started])
+#show: toot-page
 
-#show: base-template
-
-#title[Getting started]
+#title()
 
 You can find this package in the
 #link("https://typst.app/universe/package/polylux")[official Typst package

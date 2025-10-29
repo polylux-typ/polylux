@@ -1,6 +1,6 @@
-#import "../templates.typ": example, base-template
-
-#show: base-template
+#import "../setup.typ": example, toot-page
+#set document(title: [show later])
+#show: toot-page
 
 #title[`#show: later` to reveal content piece by piece]
 

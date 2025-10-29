@@ -1,6 +1,6 @@
-#import "../templates.typ": example, base-template
-
-#show: base-template
+#import "../setup.typ": example, toot-page
+#set document(title: [General syntax])
+#show: toot-page
 
 #title[General syntax for `#only` and `#uncover`]
 

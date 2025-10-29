@@ -1,8 +1,8 @@
-#import "../templates.typ": example, base-template
+#import "../setup.typ": example, toot-page
+#set document(title: [Dynamic slides])
+#show: toot-page
 
-#show: base-template
-
-#title[Dynamic slides]
+#title()
 
 The PDF format does not (trivially) allow to include animations, as one would be
 used to from, say, PowerPoint.

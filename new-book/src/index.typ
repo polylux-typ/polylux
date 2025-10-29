@@ -1,8 +1,8 @@
-#import "templates.typ": example, base-template
+#import "setup.typ": example, toot-page
+#set document(title: [Polylux])
+#show: toot-page
 
-#show: base-template
-
-#title[Polylux]
+#title()
 
 *Polylux* is a package for the typesetting system
 #link("https://typst.app")[Typst] to create presentation slides, just like you

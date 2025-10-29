@@ -1,8 +1,8 @@
-#import "../templates.typ": example, base-template
+#import "../setup.typ": example, toot-page
+#set document(title: [Complex display rules])
+#show: toot-page
 
-#show: base-template
-
-#title[Complex display rules]
+#title()
 There are multiple options to define more complex display rules than a single
 number.
 

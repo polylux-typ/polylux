@@ -1,8 +1,8 @@
-#import "../templates.typ": example, base-template
+#import "../setup.typ": example, toot-page
+#set document(title: [Higher level helper functions])
+#show: toot-page
 
-#show: base-template
-
-#title[Higher level helper functions]
+#title()
 
 With `#only` and `#uncover` you can come a long way but there are some
 reoccurring situations for which helper functions are provided.
