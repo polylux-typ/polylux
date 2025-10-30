@@ -1,10 +1,11 @@
 #import "@preview/toot:0.1.0": setup-toot
 
-#let (toot-page, example, to-web-link) = setup-toot(
+#let (toot-page, example, i-link) = setup-toot(
   name: [Polylux],
   universe-url: "https://typst.app/universe/package/polylux",
   outline: include "OUTLINE.typ",
   styling: (accent-color: blue),
+  root: "polylux-toot",
   snippets: (
     (
       trigger: "// SETUP",
