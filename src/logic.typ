@@ -267,8 +267,6 @@
   repetitions.update(1)
   later-counter.update(0)
 
-  // Having this here is a bit unfortunate concerning separation of concerns
-  // but I'm not comfortable with logic depending on pdfpc...
   let pdfpc-slide-markers(curr-subslide) = context [
     #metadata((t: "NewSlide")) <pdfpc>
     #metadata((t: "Idx", v: counter(page).get().first() - 1)) <pdfpc>
@@ -278,18 +276,29 @@
 
   pdfpc-slide-markers(1)
 
+  // Place the marker to save counters
+  [#metadata("save-counters") <save-counters-marker>]
+
   body
 
   subslide.step()
   set heading(outlined: false)
 
   context {
+    // Look for markers that exist physically BEFORE the current code block.
+    let target-marker = query(selector(<save-counters-marker>).before(here())).last()
+    // Get the counter value at that specific location
+    let c = counter(figure.where(kind: image)).at(target-marker.location())
+
     let reps = repetitions.get().first()
     for curr-subslide in range(2, reps + 1) {
       later-counter.update(0)
       pagebreak(weak: true)
 
       pdfpc-slide-markers(curr-subslide)
+
+      // Update the counter using the data found at the marker
+      counter(figure.where(kind: image)).update(c)
 
       body
       subslide.step()
