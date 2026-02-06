@@ -10,6 +10,7 @@
   item-by-item,
   reveal-code,
   later,
-  enable-handout-mode
+  enable-handout-mode,
+  in-subslide
 )
 #import "toolbox/toolbox.typ"

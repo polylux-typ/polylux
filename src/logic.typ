@@ -97,6 +97,11 @@
   }
 }
 
+#let in-subslide(visible-subslides) = {
+  let _ = repetitions.update(rep => calc.max(rep, _last-required-subslide(visible-subslides)));
+  _check-visible(subslide.at(here()).first(), visible-subslides)
+}
+
 #let _conditional-display(visible-subslides, reserve-space, mode, body) = {
   context{
     let vs = if reserve-space and handout-mode.at(here()) {
@@ -104,8 +109,7 @@
     } else {
       visible-subslides
     }
-    repetitions.update(rep => calc.max(rep, _last-required-subslide(vs)))
-    if _check-visible(subslide.at(here()).first(), vs) {
+    if in-subslide(vs) {
       body
     } else if reserve-space {
       _slides-cover(mode, body)
