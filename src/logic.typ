@@ -98,7 +98,6 @@
 }
 
 #let in-subslide(visible-subslides) = {
-  let _ = repetitions.update(rep => calc.max(rep, _last-required-subslide(visible-subslides)));
   _check-visible(subslide.at(here()).first(), visible-subslides)
 }
 
@@ -109,6 +108,7 @@
     } else {
       visible-subslides
     }
+    repetitions.update(rep => calc.max(rep, _last-required-subslide(visible-subslides)))
     if in-subslide(vs) {
       body
     } else if reserve-space {
