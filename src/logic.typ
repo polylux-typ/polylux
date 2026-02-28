@@ -117,6 +117,10 @@
   }
 }
 
+#let enforce-subslides(number) = {
+  repetitions.update(rep => calc.max(rep, number))
+}
+
 #let uncover(visible-subslides, mode: hide, body) = {
   _conditional-display(visible-subslides, true, mode, body)
 }
