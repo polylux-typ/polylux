@@ -275,7 +275,7 @@
   // but I'm not comfortable with logic depending on pdfpc...
   let pdfpc-slide-markers(curr-subslide) = context [
     #metadata((t: "NewSlide")) <pdfpc>
-    #metadata((t: "Idx", v: counter(page).get().first() - 1)) <pdfpc>
+    #metadata((t: "Idx", v: here().page() - 1)) <pdfpc>
     #metadata((t: "Overlay", v: curr-subslide - 1)) <pdfpc>
     #metadata((t: "LogicalSlide", v: logical-slide.get().first())) <pdfpc>
   ]
@@ -292,6 +292,7 @@
     for curr-subslide in range(2, reps + 1) {
       later-counter.update(0)
       pagebreak(weak: true)
+      counter(page).update(n => n - 1)
 
       pdfpc-slide-markers(curr-subslide)
 
