@@ -101,7 +101,7 @@
   _check-visible(subslide.at(here()).first(), visible-subslides)
 }
 
-#let _conditional-display(visible-subslides, reserve-space, mode, body) = {
+#let _conditional-display(visible-subslides, reserve-space, mode, body, hide-bullets: true) = {
   context{
     let vs = if reserve-space and handout-mode.at(here()) {
       (:)
@@ -112,6 +112,10 @@
     if in-subslide(vs) {
       body
     } else if reserve-space {
+      if hide-bullets {
+        set list(marker: "")
+        set enum(numbering: _ => "")
+      }
       _slides-cover(mode, body)
     }
   }
@@ -131,7 +135,7 @@
   }
 }
 
-#let item-by-item(start: 1, mode: hide, body) = {
+#let item-by-item(start: 1, mode: hide, hide-bullets: true, body) = {
   let is-item(it) = type(it) == content and it.func() in (
     list.item, enum.item, terms.item
   )
@@ -140,7 +144,15 @@
   } else {
     body
   }
-  one-by-one(start: start, mode: mode, ..children.filter(is-item))
+  for (idx, child) in children.filter(is-item).enumerate() {
+    _conditional-display(
+      (beginning: start + idx),
+      true,
+      mode,
+      child,
+      hide-bullets: hide-bullets
+    )
+  }
 }
 
 #let alternatives-match(subslides-contents, position: bottom + left) = {
