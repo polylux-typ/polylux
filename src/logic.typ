@@ -131,7 +131,7 @@
   }
 }
 
-#let item-by-item(start: 1, mode: hide, body) = {
+#let item-by-item(start: 1, mode: hide, show-bullets: false, body) = {
   let is-item(it) = type(it) == content and it.func() in (
     list.item, enum.item, terms.item
   )
@@ -140,7 +140,14 @@
   } else {
     body
   }
-  one-by-one(start: start, mode: mode, ..children.filter(is-item))
+  let items = chilren.filter(is-item)
+  if not show-bullets {
+    items = items.map(it => {
+      set list(marker: "")
+      set enum(numbering: _ => "")
+    })
+  }
+  one-by-one(start: start, mode: mode, ..items)
 }
 
 #let alternatives-match(subslides-contents, position: bottom + left) = {
