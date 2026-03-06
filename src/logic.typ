@@ -149,7 +149,7 @@
       (beginning: start + idx),
       true,
       mode,
-      body,
+      child,
       hide-bullets: hide-bullets
     )
   }
